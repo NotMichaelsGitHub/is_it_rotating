@@ -1,9 +1,9 @@
 $(document).ready(function(){
-    var sets = ['sm5','sm6','sm7', 'sm75', 'sm8','sm9', 'det1', 'sm10'];
+    var sets = ['sm5','sm6','sm7', 'sm75', 'sm8','sm9', 'det1', 'sm10', 'smp'];
 
     var thing = sets.map(function (set) {
         return $.ajax({
-            url: 'https://notmichaelsgithub.github.io/is_it_rotating/en_US/' + set + ".json",
+            url: 'http://localhost:63342/is_it_rotating/en_US/' + set + ".json/",
             dataType: 'json',
             method: 'GET'
         })
@@ -21,6 +21,16 @@ $(document).ready(function(){
             doIt(carddata[5][0]);
             doIt(carddata[6][0]);
             doIt(carddata[7][0]);
+
+            console.log(carddata[8][0][92]);
+            console.log();
+            var promos = [];
+            for(i = 92; i < carddata[8][0].length; i++){
+                promos.push(carddata[8][0][i])
+            }
+            console.log(promos);
+
+            doIt(promos);
         });
 
 
@@ -66,8 +76,13 @@ function doIt(asdf) {
         else if(json[i].setCode == 'sm10'){
             temp = 'Unbroken Bonds'
         }
+        else{
+            temp = 'Black Star Promo'
+        }
         tr.append("<td class=\"col-sm-1\">" + temp + "</td>");
 
+        // tr.append("<td class=\"col-sm-1\">" + json[i].supertype + "</td>");
+        // tr.append("<td class=\"col-sm-1\">" + json[i].subtype + "</td>");
         tr.append("<td class=\"col-sm-6 text-center\"><image src='https://images.pokemontcg.io/"+ json[i].setCode+"/"+ json[i].number +"_hires.png' style='width: 125px; height: 175px'></image></td>");
         $('table').append(tr);
     }

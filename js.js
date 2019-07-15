@@ -3,7 +3,7 @@ $(document).ready(function(){
 
     var thing = sets.map(function (set) {
         return $.ajax({
-            url: 'http://notmichaelsgithub.github.io/is_it_rotating/en_US/' + set + ".json",
+            url: 'https://notmichaelsgithub.github.io/is_it_rotating/en_US/' + set + ".json",
             dataType: 'json',
             method: 'GET'
         })

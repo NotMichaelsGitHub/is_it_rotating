@@ -68,8 +68,6 @@ function doIt(asdf) {
         }
         tr.append("<td class=\"col-sm-1\">" + temp + "</td>");
 
-        // tr.append("<td class=\"col-sm-1\">" + json[i].supertype + "</td>");
-        // tr.append("<td class=\"col-sm-1\">" + json[i].subtype + "</td>");
         tr.append("<td class=\"col-sm-6 text-center\"><image src='https://images.pokemontcg.io/"+ json[i].setCode+"/"+ json[i].number +"_hires.png' style='width: 125px; height: 175px'></image></td>");
         $('table').append(tr);
     }

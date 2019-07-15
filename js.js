@@ -13,8 +13,6 @@ $(document).ready(function(){
         .then(function (value) {
             var carddata = Array.prototype.slice.call(arguments);
 
-            console.log(carddata[0][0]);
-
             doIt(carddata[0][0]);
             doIt(carddata[1][0]);
             doIt(carddata[2][0]);
